@@ -1,82 +1,198 @@
+import { useState } from "react";
+import ClientDetails from "./components/ClientDetails";
+import Dates from "./components/Dates";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import MainDetails from "./components/MainDetails";
+import Notes from "./components/Notes";
+import Table from "./components/Table";
 
 
 function App() {
+  const [showInvoice, setShowInvoice] = useState(false);
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [bankName, setBankName] = useState('');
+  const [bankAccount, setBankAccount] = useState('');
+  const [website, setWebsite] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [clientAddress, setClientAddress] = useState('');
+  const [invoiceNumber, setInvoiceNumber] = useState('');
+  const [invoiceDate, setInvoiceDate] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [notes, setNotes] = useState('');
   const handlePrint =()=>{
     window.print()
   }
   return (
     <>
-    {/* Header */}
-    <main className="p-5 m-5 lg:max-w-4xl lg:mx-auto bg-white rounded shadow">
-      <header className="flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">
-        <div>
-          <h1 className="font-bold uppercase tracking-wide text-4xl mb-3">Invoicer</h1>
-        </div>
+    <main className="p-5 m-5 md:max-w-xl md:mx-auto lg:max-w-2xl bg-white rounded shadow">
+      {showInvoice ? <div>
+        <Header handlePrint={handlePrint}/>
+        <MainDetails name={name} address={address} />
+        <ClientDetails clientName={clientName} clientAddress={clientAddress} />
+        <Dates invoiceNumber={invoiceNumber} invoiceDate={invoiceDate} dueDate={dueDate}/>
+        <Table />
+        <Notes notes={notes}/>
+        <Footer name={name} address={address} website={website} email={email} phone={phone} bankAccount={bankAccount} bankName={bankName}/>
+        <button
+          onClick={()=>setShowInvoice(false)}
+          className="mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300">Edit Information</button>
+      </div>:(
+        <>
+          <div className="flex flex-col justify-center">
+            <label htmlFor="name">Enter Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter Your Name"
+              autoComplete="off"
+              value={name}
+              onChange={(e)=> setName(e.target.value)}
+            />
 
-        <div>
-          <ul className="flex items-center justify-between flex-wrap">
-            <li>
-              <button className="btn btn-print" onClick={handlePrint}>Print</button>
-            </li>
-            <li>
-              <button className="btn btn-download">Download</button>
-            </li>
-            <li>
-              <button className="btn btn-send">Send</button>
-            </li>
-          </ul>
-        </div>
-      </header>
-    {/* End Of Header */}
+            <label htmlFor="address">Enter Your Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Enter Your Address"
+              autoComplete="off"
+              value={address}
+              onChange={(e)=> setAddress(e.target.value)}
+            />
 
-    {/* Your Details */}
-      <section className="flex flex-col items-end justify-end">
-        <h2 className="text-xl uppercase">IHAB MAHMOUD</h2>
-        <p>Your Address</p>
-      </section>
-    {/* End Of Your Details */}
+            <label htmlFor="email">Enter Your Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Enter Your Email"
+              autoComplete="off"
+              value={email}
+              onChange={(e)=> setEmail(e.target.value)}
+            />
 
-    {/* Client Details */}
-      <section className="mt-5">
-        <h2 className="text-xl uppercase">Client's Name</h2>
-        <p>Client's Address</p>
-      </section>
-    {/* End Of Client Details */}
+            <label htmlFor="website">Enter Your Website</label>
+            <input
+              type="text"
+              name="website"
+              id="website"
+              placeholder="Enter Your Website"
+              autoComplete="off"
+              value={website}
+              onChange={(e)=> setWebsite(e.target.value)}
+            />
 
-    {/* Dates*/}
-      <article className="my-5 flex items-end justify-end">
-        <ul>
-          <li><span className="font-bold">Invoicer Number: </span> {""}</li>
-          <li><span className="font-bold">Invoice Date: </span> {""}</li>
-          <li><span className="font-bold">Due Date: </span> {""}</li>
-        </ul>
-      </article>
-    {/* End Of Dates */}
+            <label htmlFor="phone">Enter Your Phone</label>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="Enter Your Phone"
+              autoComplete="off"
+              value={phone}
+              onChange={(e)=> setPhone(e.target.value)}
+            />
 
-    {/* Table */}
-      <div className="my-5">This Is The Table</div>
-    {/* End Of Table */}
+            <label htmlFor="bankName">Enter Your Bank Name</label>
+            <input
+              type="text"
+              name="bankName"
+              id="bankName"
+              placeholder="Enter Your Bank Name"
+              autoComplete="off"
+              value={bankName}
+              onChange={(e)=> setBankName(e.target.value)}
+            />
 
-    {/* Notes */}
-      <section className="mb-5">
-        {/* Textarea */}
-        <p>Notes To The Client...</p>
-      </section>
-    {/* End Of Notes */}
+            <label htmlFor="bankAccount">Enter Your Bank Account Number</label>
+            <input
+              type="text"
+              name="bankAccount"
+              id="bankAccount"
+              placeholder="Enter Your Bank Account Number"
+              autoComplete="off"
+              value={bankAccount}
+              onChange={(e)=> setBankAccount(e.target.value)}
+            />
 
-    {/* Footer */}
-    <footer>
-      <ul className="flex  flex-wrap items-center justify-center">
-        <li><span className="font-bold">Your Name:      </span> IHAB MAHMOUD</li>
-        <li><span className="font-bold">Your Email:     </span> ehabmah6969@gmail.com</li>
-        <li><span className="font-bold">Phone Number:   </span> 0112324299</li>
-        <li><span className="font-bold">Bank:           </span> Bank Account</li>
-        <li><span className="font-bold">Account Holder: </span> IHAB MAHMOUD</li>
-        <li><span className="font-bold">Account Number: </span> 123 456 789</li>
-        <li><span className="font-bold">Website:        </span> https://ehab-mahmoud.netlify.app/</li>
-      </ul>
-    </footer>
-    {/* End Of Footer */}
+            <label htmlFor="clientName">Enter Your Client's Name</label>
+            <input
+              type="text"
+              name="clientName"
+              id="clientName"
+              placeholder="Enter Your Client's Name"
+              autoComplete="off"
+              value={clientName}
+              onChange={(e)=> setClientName(e.target.value)}
+            />
+
+            <label htmlFor="clientAddress">Enter Your Client's Address</label>
+            <input
+              type="text"
+              name="clientAddress"
+              id="clientAddress"
+              placeholder="Enter Your Client's Address"
+              autoComplete="off"
+              value={clientAddress}
+              onChange={(e)=> setClientAddress(e.target.value)}
+            />
+
+            <label htmlFor="invoiceNumber">Invoice Number</label>
+            <input
+              type="text"
+              name="invoiceNumber"
+              id="invoiceNumber"
+              placeholder="Invoice Number"
+              autoComplete="off"
+              value={invoiceNumber}
+              onChange={(e)=> setInvoiceNumber(e.target.value)}
+            />
+
+            <label htmlFor="invoiceDate">Invoice Date</label>
+            <input
+              type="date"
+              name="invoiceDate"
+              id="invoiceDate"
+              placeholder="Invoice Date"
+              autoComplete="off"
+              value={invoiceDate}
+              onChange={(e)=> setInvoiceDate(e.target.value)}
+            />
+
+            <label htmlFor="dueDate">Due Date</label>
+            <input
+              type="date"
+              name="dueDate"
+              id="dueDate"
+              placeholder="Due Date"
+              autoComplete="off"
+              value={dueDate}
+              onChange={(e)=> setDueDate(e.target.value)}
+            />
+
+            <label htmlFor="notes">Additional Notes</label>
+            <textarea
+             name="notes"
+             id="notes" 
+             cols='30' 
+             rows='10' 
+             placeholder="Additional Notes To The Client" 
+             value={notes}
+             onChange={(e)=> setNotes(e.target.value)}
+             ></textarea>
+            <button
+              onClick={()=> setShowInvoice(true)}
+              className="mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300">
+              Preview Invoice
+            </button>
+          </div>
+        </>
+      )}
     </main>
     </>
   );

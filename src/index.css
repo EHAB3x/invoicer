@@ -7,8 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f1f1f1;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button{
+  user-select: none;
+}
+.footer li{
+  margin:.5rem .2rem;
 }
