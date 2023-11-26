@@ -43,10 +43,10 @@ function App() {
       {showInvoice ?
       <>
       <ReactToPrint
-       trigger={()=> <buttton className="bg-blue-500 text-white font-bold
+       trigger={()=> <button className="bg-blue-500 text-white font-bold
        py-1 px-8 rounded shadow border-2 border-blue-500
        hover:bg-transparent hover:text-blue-500 transition-all
-       duration-300 m-5 cursor-pointer">Print / Download</buttton>}
+       duration-300 m-5 cursor-pointer">Print / Download</button>}
        content={()=> componentRef.current}
       />
        <div ref={componentRef} className="p-5">
