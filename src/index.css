@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #161853;
+  color: white;
 }
 .main{
   background-color: #292C6D;
