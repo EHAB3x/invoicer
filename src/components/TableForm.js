@@ -16,20 +16,25 @@ export default function TableForm({
   const handleSubmit = (e)=>{
     e.preventDefault();
 
-    const newItems = {
-      id : uuidv4(),
-      description:description,
-      quantity,
-      price,
-      amount,
+    if(!description || !quantity || !price){
+      alert("Please Fill In All Inputs")
+    }else{
+      const newItems = {
+        id : uuidv4(),
+        description:description,
+        quantity,
+        price,
+        amount,
+      }
+      setDescription("")
+      setQuantity("")
+      setPrice("")
+      setAmount("")
+      setList([...list,newItems])
+      setIsEditing(false)
+      console.log(list);
     }
-    setDescription("")
-    setQuantity("")
-    setPrice("")
-    setAmount("")
-    setList([...list,newItems])
-    setIsEditing(false)
-    console.log(list);
+
   }
 
   useEffect(()=>{
@@ -54,7 +59,7 @@ export default function TableForm({
     setPrice(editingRow.price)
   } 
 
-  const deleteRow = (id)=>{setList(list.filter((row)=> row.id !== id))}
+  const deleteRow = (id)=>{setList(list.filter(row=> row.id !== id))}
   return (
     <>
         <form onSubmit={handleSubmit}>
