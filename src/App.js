@@ -38,7 +38,7 @@ function App() {
   }
   return (
     <>
-    <main className="p-5 m-5 md:max-w-xl md:mx-auto lg:max-w-2xl bg-white rounded shadow">
+    <main className="p-5 m-5 md:max-w-xl md:mx-auto lg:max-w-2xl bg-white rounded shadow main">
        
       {showInvoice ?
       <>
