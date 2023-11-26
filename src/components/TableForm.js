@@ -32,7 +32,6 @@ export default function TableForm({
       setAmount("")
       setList([...list,newItems])
       setIsEditing(false)
-      console.log(list);
     }
 
   }
