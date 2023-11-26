@@ -5,20 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #161853;
-  color: white;
-}
-.main{
-  background-color: #292C6D;
+  background-color: #f1f1f1;
 }
 label{
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #383838;
 }
 input , textarea{
-  background-color: #161853;
+  background-color: #f1f1f1;
   padding: 0.5rem;
   border-radius: .2rem;
   -webkit-border-radius: .2rem;
@@ -26,36 +22,7 @@ input , textarea{
   -ms-border-radius: .2rem;
   -o-border-radius: .2rem;
   margin-bottom:2rem;
-  color: white;
-}
-input::placeholder , textarea::placeholder{
-  color: white;
-}
-button{
-  user-select: none;
-}
-.bg-blue-500{
-  background-color: #EC255A;
-}
-.border-blue-500{
-  border-color: #EC255A;
-}
-.hover\:text-blue-500:hover{
-  color: #EC255A;
-}
-.text-gray-800{
-  color: #EC255A;
-}
-.bg-gray-100{
-  background-color: #EC255A;
-  color: white;
-}
-tr td{
-  color: white;
-}
-#amount{
-  color: white;
-  font-weight: bold;
+  color: #616161;
 }
 .footer li{
   margin:.5rem .2rem;
